@@ -21,9 +21,9 @@ var ReactCountrySelect = function (_Component) {
         _this.state = {
             tag: props.value || null
         };
-        //this.logChange = this.logChange.bind(this);
-        //this.CountryRenderValue = this.CountryRenderValue.bind(this);
-        //this.CountryOptionRenderer = this.CountryOptionRenderer.bind(this);
+        _this.logChange = _this.logChange.bind(_this);
+        _this.CountryRenderValue = _this.CountryRenderValue.bind(_this);
+        _this.CountryOptionRenderer = _this.CountryOptionRenderer.bind(_this);
         return _this;
     }
 
