@@ -19,15 +19,11 @@ var ReactCountrySelect = function (_Component) {
         var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 
         _this.state = {
-            imageStyle: {
-                width: 30,
-                height: 15
-            },
-            tag: null
+            tag: props.value || null
         };
-        _this.logChange = _this.logChange.bind(_this);
-        _this.CountryRenderValue = _this.CountryRenderValue.bind(_this);
-        _this.CountryOptionRenderer = _this.CountryOptionRenderer.bind(_this);
+        //this.logChange = this.logChange.bind(this);
+        //this.CountryRenderValue = this.CountryRenderValue.bind(this);
+        //this.CountryOptionRenderer = this.CountryOptionRenderer.bind(this);
         return _this;
     }
 
@@ -39,32 +35,16 @@ var ReactCountrySelect = function (_Component) {
     };
 
     ReactCountrySelect.prototype.CountryOptionRenderer = function CountryOptionRenderer(option) {
-        var flagImageUrl = this.props.flagImagePath + option.value + '.png';
-        var optionStyle = {
-            width: 50,
-            height: 30
-        };
-        return React.createElement(
-            'span',
-            { style: {
-                    color: option.color
-                } },
-            React.createElement('img', { src: flagImageUrl, style: optionStyle }),
-            '\xA0 ',
-            option.label
-        );
+        return option.label;
     };
 
     ReactCountrySelect.prototype.CountryRenderValue = function CountryRenderValue(option) {
-        var flagImageUrl = this.props.flagImagePath + option.value + '.png';
         if (option.value === undefined) {
             return null;
         } else {
             return React.createElement(
                 'span',
                 null,
-                React.createElement('img', { src: flagImageUrl, style: this.state.imageStyle, alt: '', onError: this.onImageError }),
-                '\xA0 ',
                 option.label
             );
         }
@@ -74,8 +54,7 @@ var ReactCountrySelect = function (_Component) {
         return React.createElement(
             'div',
             null,
-            React.createElement(Select, { placeholder: 'Search country..',
-                value: this.state.tag,
+            React.createElement(Select, { value: this.state.tag,
                 options: countries,
                 optionRenderer: this.CountryOptionRenderer,
                 backspaceRemoves: true,
