@@ -16,6 +16,12 @@ export default class ReactCountrySelect extends Component {
         this.CountryOptionRenderer = this.CountryOptionRenderer.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+      if (this.props.value !== nextProps.value) {
+        this.setState({tag: nextProps.value})
+      }
+    }
+
     logChange(val) {
         this.setState({tag: val});
         if (typeof this.props.onSelect === 'function') {

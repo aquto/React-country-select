@@ -110,6 +110,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _this;
 	    }
 
+	    ReactCountrySelect.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+	        if (this.props.value !== nextProps.value) {
+	            this.setState({ tag: nextProps.value });
+	        }
+	    };
+
 	    ReactCountrySelect.prototype.logChange = function logChange(val) {
 	        this.setState({ tag: val });
 	        if (typeof this.props.onSelect === 'function') {
@@ -130,7 +136,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                {
 	                    __source: {
 	                        fileName: _jsxFileName,
-	                        lineNumber: 34
+	                        lineNumber: 40
 	                    },
 	                    __self: this
 	                },
@@ -145,7 +151,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            {
 	                __source: {
 	                    fileName: _jsxFileName,
-	                    lineNumber: 40
+	                    lineNumber: 46
 	                },
 	                __self: this
 	            },
@@ -157,7 +163,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                valueRenderer: this.CountryRenderValue,
 	                multi: this.props.multi, __source: {
 	                    fileName: _jsxFileName,
-	                    lineNumber: 41
+	                    lineNumber: 47
 	                },
 	                __self: this
 	            })
